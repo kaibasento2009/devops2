@@ -1,13 +1,3 @@
-terraform {
-    backend "s3" {
-      bucket = "Tai-dc1testing-tfstate-s3"
-      key = "tfstate/terraform.tfstate"
-      region = "ap-southeast-1"
-      encrypt = true
- #     profile = "dc1testing"
-    }
-}
-
 provider "aws" {
     region =  var.aws-region
 

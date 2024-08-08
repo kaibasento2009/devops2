@@ -1,5 +1,5 @@
 variable "aws-region" {
-    default = "ap-southeast-2"
+    default = "ap-southeast-1"
 }
 
 variable "cidr-block" {
