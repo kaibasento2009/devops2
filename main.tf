@@ -1,8 +1,8 @@
 terraform {
     backend "s3" {
-      bucket = "dc1testing-tfstate-s3"
+      bucket = "Tai-dc1testing-tfstate-s3"
       key = "tfstate/terraform.tfstate"
-      region = "ap-southeast-2"
+      region = "ap-southeast-1"
       encrypt = true
  #     profile = "dc1testing"
     }
@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 
-resource "aws_vpc" "tf-testing-vpc" {
+resource "aws_vpc" "tf-testing-vpc-1" {
     cidr_block = var.cidr-block
     tags = {
         vpc = "dc1testing-vpc"
@@ -23,14 +23,14 @@ resource "aws_vpc" "tf-testing-vpc" {
 }
 
 resource "aws_internet_gateway" "internet-gateway" {
-    vpc_id = aws_vpc.tf-testing-vpc.id
+    vpc_id = aws_vpc.tf-testing-vpc-1.id
     tags = {
         internet-gateway = "dc1testing-internet-gateway"
     }
 }
 
 resource "aws_route_table" "vpc-route" {
-    vpc_id = aws_vpc.tf-testing-vpc.id
+    vpc_id = aws_vpc.tf-testing-vpc-1.id
     route {
         cidr_block = "12.12.0.0/16"
         gateway_id = "local"
@@ -52,7 +52,7 @@ resource "aws_route_table_association" "vpc-route-associate-2" {
 }
 
 resource "aws_security_group" "security-group" {
-    vpc_id = aws_vpc.tf-testing-vpc.id
+    vpc_id = aws_vpc.tf-testing-vpc-1.id
     name = "securitygroup-testing"
     ingress {
         protocol = "tcp"
@@ -94,21 +94,21 @@ resource "aws_vpc_security_group_egress_rule" "egress-allow-all" {
 }
 
 resource "aws_subnet" "testing-subnet" {
-    vpc_id = aws_vpc.tf-testing-vpc.id
+    vpc_id = aws_vpc.tf-testing-vpc-1.id
     cidr_block = "12.12.12.0/24"
-    availability_zone = "ap-southeast-2a"
+    availability_zone = "ap-southeast-1a"
     tags = {
-        subnet = "dc1-testing-subnet2a-web-server"
+        subnet = "dc1-testing-subnet1a-web-server"
     }
 
 }
 
 resource "aws_subnet" "testing-subnet-2" {
-    vpc_id = aws_vpc.tf-testing-vpc.id
+    vpc_id = aws_vpc.tf-testing-vpc-1.id
     cidr_block = "12.12.13.0/24"
-    availability_zone = "ap-southeast-2b"
+    availability_zone = "ap-southeast-1b"
     tags = {
-        subnet = "dc1-testing-subnet2b-web-server"
+        subnet = "dc1-testing-subnet1b-web-server"
     }
   
 }
@@ -162,9 +162,3 @@ resource "aws_db_instance" "database" {
 
 }
 
-
-
-//resource "aws_internet_gateway_attachment" "internet-gateway-attachment" {
-//    internet_gateway_id = aws_internet_gateway.internet-gateway.id
-//    vpc_id = aws_vpc.tf-testing-vpc.id
-//}
