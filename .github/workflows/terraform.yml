@@ -1,9 +1,9 @@
 name: Full Deployment
-run-name: Create Env and Run Deployment via TF
+run-name: Create Env and Run Deployment via Terraform
 
 on:
-  #push:
-  #  branches: [ "main" ]
+  push:
+    branches: [ "master" ]
   #pull_request:
   #  branches: [ "main" ]
   workflow_dispatch: 
