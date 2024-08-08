@@ -43,7 +43,7 @@ jobs:
       run: terraform output -raw eip-public-ip
     - name: update public ip to github secret
       run: echo ip=$(terraform output -raw eip-public-ip) >> $GITHUB_ENV
-    - name: deploy code to terraform environment
+   # - name: deploy code to terraform environment
       #run: |
        # echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
        # ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@$ip '
