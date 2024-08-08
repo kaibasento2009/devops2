@@ -49,7 +49,7 @@ jobs:
        # ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@$ip '
        #   echo "<h1>Hi -- This is Github Action Pipeline --- This is latest code with env that created by terraform </h1>" | sudo tee /var/www/html/index.nginx-debian.html
        # '
-    - name: testing site that created by terraform
-      run: curl http://$ip
+   # - name: testing site that created by terraform
+   #   run: curl http://$ip
     - name: destroy terraform 
       run: terraform destroy --auto-approve
