@@ -35,12 +35,12 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
     - name: init terraform
       run: terraform init 
-    - name: plan terraform
-      run: terraform plan
-    - name: apply terraform
-      run: terraform apply --auto-approve
-    - name: get terraform raw output
-      run: terraform output -raw eip-public-ip
+   # - name: plan terraform
+   #   run: terraform plan
+   #  - name: apply terraform
+   #   run: terraform apply --auto-approve
+   # - name: get terraform raw output
+   #   run: terraform output -raw eip-public-ip
  #   - name: update public ip to github secret
  #     run: echo ip=$(terraform output -raw eip-public-ip) >> $GITHUB_ENV
  #   - name: deploy code to terraform environment
