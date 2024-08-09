@@ -1,7 +1,7 @@
 provider "aws" {
     region =  var.aws-region
 
-#    profile = "dc1testing"
+#    profile = "dc1testing-01"
 }
 
 
