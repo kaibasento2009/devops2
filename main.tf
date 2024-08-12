@@ -4,14 +4,12 @@ terraform {
       key = "tfstate/terraform.tfstate"
       region = "ap-southeast-2"
       encrypt = true
-#      profile = "dc1testing"
     }
 }
 
 provider "aws" {
     region =  var.aws-region
 
-#    profile = "dc1testing"
 }
 
 
@@ -82,8 +80,6 @@ resource "aws_vpc_security_group_ingress_rule" "ingress-allow-all" {
     security_group_id = aws_security_group.security-group.id
     ip_protocol = "-1"
     cidr_ipv4 = "0.0.0.0/0"
-#    from_port = 80
-#    to_port = 80
   
 }
 
