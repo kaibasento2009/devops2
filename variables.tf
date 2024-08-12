@@ -7,7 +7,7 @@ variable "cidr-block" {
 }
 
 variable "ami" {
-    default = "ami-02346a771f34de8ac"
+    default = "ami-03f0544597f43a91d"
 }
 
 variable instance-type {
