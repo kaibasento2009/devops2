@@ -2,11 +2,12 @@ name: Full Deployment
 run-name: Create Environment and Run Deployment via Terraform
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "nnatai" ]
   #pull_request:
   #  branches: [ "main_test" ]
-  workflow_dispatch: 
+  #  workflow_dispatch: 
 env:
   AWS_REGION: ap-southeast-2
   PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
