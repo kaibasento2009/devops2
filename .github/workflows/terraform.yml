@@ -5,7 +5,7 @@ on:
   push:
     branches: [ "nnatai" ]
   #pull_request:
-  #  branches: [ "main" ]
+  #  branches: [ "main_test" ]
   workflow_dispatch: 
 env:
   AWS_REGION: ap-southeast-2
