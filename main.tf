@@ -12,7 +12,6 @@ provider "aws" {
 
 }
 
-
 resource "aws_vpc" "tf-testing-vpc-Tai01" {
     cidr_block = var.cidr-block
     tags = {
